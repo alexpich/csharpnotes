@@ -1,0 +1,29 @@
+Variables
+    -int 
+        -default value is 0
+        -whole numbers from -2,137,486,648 to 2,137,486,648
+    -sbyte
+        - -128 to 127
+    -short
+        -whole numbers from -32767 to 32767
+    -long
+        -whole numbers from -9,223,327,036,854,775,808 to 9,223,327,036,854,775,808
+    -float
+        -ex: 99.9f;
+        -allows decimals and a range from 1.5 x 10^-45 to 3.4 x 10^38
+        - 7-digit precision
+        -mostly used in graphics libraries (high demands for processing powers)
+    -double
+        - 15-digit precision
+        -mostly used for real world values (except money calculations)
+    -decimal
+        -ex: x= 1.5;
+        -allows decimals and an even higher range than the double
+        -decimal is mostly used in financial applications (high level of accuracy)
+        - 28-digit precision
+    -bool
+        -true or false
+    -char
+        -'A'
+    -string
+        -"username"
