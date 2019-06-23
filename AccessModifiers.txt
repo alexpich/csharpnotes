@@ -1,0 +1,11 @@
+private
+	-only accessible inside a class or struct
+
+public
+	-accessible from everywhere in the project
+
+protected
+	-accessible from the class and all classes that derive from it
+
+internal
+	-accesible from its assembly (project)
