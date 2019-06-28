@@ -192,5 +192,69 @@ namespace WPF_ZooManager
                 ShowAssociatedAnimals();
             }
         }
+
+        private void AddAnimal_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                string query = "insert into Animal values (@Name)";
+                SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
+                sqlConnection.Open();
+                sqlCommand.Parameters.AddWithValue("@Name", mainTextBox.Text);
+                sqlCommand.ExecuteScalar();
+            }
+            catch (Exception)
+            {
+
+            }
+            finally
+            {
+                sqlConnection.Close();
+                ShowAllAnimals();
+            }
+        }
+
+        private void RemoveAnimal_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                string query = "delete from ZooAnimal where ZooID = @ZooId and AnimalId = @AnimalId";
+                SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
+                sqlConnection.Open();
+                sqlCommand.Parameters.AddWithValue("@ZooId", listZoos.SelectedValue);
+                sqlCommand.Parameters.AddWithValue("@AnimalId", listAssociatedAnimals.SelectedValue);
+                sqlCommand.ExecuteScalar();
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                sqlConnection.Close();
+                ShowAllAnimals();
+                ShowAssociatedAnimals();
+            }
+        }
+        private void DeleteAnimal_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                string query = "delete from Animal where id = @AnimalId";
+                SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
+                sqlConnection.Open();
+                sqlCommand.Parameters.AddWithValue("@AnimalId", listAllAnimals.SelectedValue);
+                sqlCommand.ExecuteScalar();
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                sqlConnection.Close();
+                ShowAllAnimals();
+            }
+        }
     }
 }
